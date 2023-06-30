@@ -126,7 +126,7 @@ EOF
 if [[ $(find . -maxdepth 1 -type f -iname \*.jpg | wc -l) -gt 0 ]]; then
 
 MY_ROWS='3'
-echo '<div class="row row-cols-sm-1 row-cols-md-'"$((MY_ROWS-2))"' row-cols-lg-'"$((MY_ROWS-1))"' row-cols-xl-'"$MY_ROWS"' py-5">' >> "$MY_INDEX_HTML_FILE"
+echo '<div class="row row-cols-3 no-gutters py-3">' >> "$MY_INDEX_HTML_FILE"
 ## Generate Images
 MY_NUM_FILES=0
 for MY_FILENAME in *.[jJ][pP][gG]; do
@@ -139,10 +139,8 @@ for MY_FILENAME in *.[jJ][pP][gG]; do
 		fi
 	done
 	cat >> "$MY_INDEX_HTML_FILE" << EOF
-<div class="col">
-	<p>
-		<a href="$MY_THUMBDIR/$MY_FILENAME.html"><img src="$MY_THUMBDIR/$MY_HEIGHT_SMALL/$MY_FILENAME" alt="Thumbnail: $MY_FILENAME" class="rounded mx-auto d-block" height="$((MY_HEIGHT_SMALL/2))"></a>
-	</p>
+<div class="col mx-auto">
+		<a href="$MY_THUMBDIR/$MY_FILENAME.html"><img src="$MY_THUMBDIR/$MY_HEIGHT_SMALL/$MY_FILENAME" alt="thumbnail: $MY_FILENAME" class="img-fluid border border-white"></a>
 </div>
 EOF
 done
@@ -174,7 +172,7 @@ while [[ $MY_FILE -lt $MY_NUM_FILES ]]; do
 <header>
 	<div class="navbar navbar-dark bg-dark shadow-sm">
 		<div class="container">
-			<a href="../index.html" class="navbar-brand">
+			<a href="/" class="navbar-brand">
 				<strong>$MY_TITLE</strong>
 			</a>
 		</div>
@@ -186,9 +184,9 @@ EOF
 	# Pager
 	echo '<div class="row py-3"><div class="col text-left">' >> "$MY_IMAGE_HTML_FILE"
 	if [[ $MY_PREV ]]; then
-		echo '<a href="'"$MY_PREV"'.html" accesskey="p" title="⌨️ PC: [Alt]+[Shift]+[P] / MAC: [Control]+[Option]+[P]" class="btn btn-secondary " role="button">&laquo; Previous</a>' >> "$MY_IMAGE_HTML_FILE"
+		echo '<a href="'"$MY_PREV"'.html" accesskey="p" class="btn btn-secondary" role="button">&laquo; Previous</a>' >> "$MY_IMAGE_HTML_FILE"
 	else
-		echo '<a href="#" class="btn btn-secondary  disabled" role="button" aria-disabled="true">&laquo; Previous</a>' >> "$MY_IMAGE_HTML_FILE"
+		echo '<a href="#" class="btn btn-secondary disabled" role="button" aria-disabled="true">&laquo; Previous</a>' >> "$MY_IMAGE_HTML_FILE"
 	fi
 	cat >> "$MY_IMAGE_HTML_FILE" << EOF
 </div>
@@ -196,9 +194,9 @@ EOF
 <div class="col text-right">
 EOF
 	if [[ $MY_NEXT ]]; then
-		echo '<a href="'"$MY_NEXT"'.html" accesskey="n" title="⌨️ PC: [Alt]+[Shift]+[N] / MAC: [Control]+[Option]+[N]" class="btn btn-secondary ">Next &raquo;</a>' >> "$MY_IMAGE_HTML_FILE"
+		echo '<a href="'"$MY_NEXT"'.html" accesskey="n" class="btn btn-secondary">Next &raquo;</a>' >> "$MY_IMAGE_HTML_FILE"
 	else
-		echo '<a href="#" class="btn btn-secondary  disabled" role="button" aria-disabled="true">Next &raquo;</a>' >> "$MY_IMAGE_HTML_FILE"
+		echo '<a href="#" class="btn btn-secondary disabled" role="button" aria-disabled="true">Next &raquo;</a>' >> "$MY_IMAGE_HTML_FILE"
 	fi
 	echo '</div></div>' >> "$MY_IMAGE_HTML_FILE"
 
@@ -210,7 +208,7 @@ EOF
 </div>
 <div class="row">
 	<div class="col">
-		<p><a class="btn btn-primary" href="../$MY_FILENAME">Download Original ($MY_FILESIZE)</a></p>
+		<p><a class="btn btn-primary" href="../$MY_FILENAME">View original ($MY_FILESIZE)</a></p>
 	</div>
 </div>
 EOF
