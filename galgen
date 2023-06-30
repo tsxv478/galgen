@@ -129,7 +129,7 @@ MY_ROWS='3'
 echo '<div class="row row-cols-3 no-gutters py-3">' >> "$MY_INDEX_HTML_FILE"
 ## Generate Images
 MY_NUM_FILES=0
-for MY_FILENAME in *.[jJ][pP][gG]; do
+for MY_FILENAME in $(ls -r *.[jJ][pP][gG]); do
 	MY_FILELIST[$MY_NUM_FILES]=$MY_FILENAME
 	(( MY_NUM_FILES++ ))
 	$MY_CONVERT_COMMAND -auto-orient -strip -quality $MY_QUALITY -resize "$MY_HEIGHT_SMALL^>" -gravity center -crop "$MY_HEIGHT_SMALL"x"$MY_HEIGHT_SMALL"+0+0 "$MY_FILENAME" "$MY_THUMBDIR/$MY_HEIGHT_SMALL/$MY_FILENAME"
