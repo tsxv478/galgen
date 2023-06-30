@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# gallery.sh
-# Author: Nils Knieling - https://github.com/Cyclenerd/gallery_shell
-# Inspired by: Shapor Naghibzadeh - https://github.com/shapor/bashgal
+# Forked from https://github.com/Cyclenerd/gallery_shell
 
 #########################################################################################
 #### Configuration Section
