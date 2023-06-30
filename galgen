@@ -11,7 +11,7 @@
 MY_HEIGHT_SMALL=406
 MY_HEIGHT_LARGE=768
 MY_QUALITY=85
-MY_THUMBDIR="__thumbs"
+MY_THUMBDIR="thumbnails"
 MY_INDEX_HTML_FILE="index.html"
 MY_TITLE="Gallery"
 MY_FOOTER='Created with <a href="https://github.com/Cyclenerd/gallery_shell">gallery.sh</a>'
