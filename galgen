@@ -14,7 +14,7 @@ MY_QUALITY=85
 MY_THUMBDIR="thumbnails"
 MY_INDEX_HTML_FILE="index.html"
 MY_TITLE="Gallery"
-MY_FOOTER='Created with <a href="https://github.com/Cyclenerd/gallery_shell">gallery.sh</a>'
+# MY_FOOTER='Created with <a href="https://github.com/Cyclenerd/gallery_shell">gallery.sh</a>'
 
 # Use convert from ImageMagick
 MY_CONVERT_COMMAND="convert" 
@@ -229,17 +229,17 @@ EOF
 	fi
 
 	# Footer
-	cat >> "$MY_IMAGE_HTML_FILE" << EOF
-</main> <!-- // main container -->
-<br>
-<footer class="footer mt-auto py-3 bg-light">
-	<div class="container">
-		<span class="text-muted">$MY_FOOTER - $MY_DATETIME</span>
-	</div>
-</footer>
-</body>
-</html>
-EOF
+	# cat >> "$MY_IMAGE_HTML_FILE" << EOF
+# </main> <!-- // main container -->
+# <br>
+# <footer class="footer mt-auto py-3 bg-light">
+	# <div class="container">
+	# 	<span class="text-muted">$MY_FOOTER - $MY_DATETIME</span>
+	# </div>
+# </footer>
+# </body>
+# </html>
+# EOF
 	(( MY_FILE++ ))
 done
 
@@ -296,16 +296,16 @@ EOF
 fi
 
 ### Footer
-cat >> "$MY_INDEX_HTML_FILE" << EOF
-</main> <!-- // main container -->
-<br>
-<footer class="footer mt-auto py-3 bg-light">
-	<div class="container">
-		<span class="text-muted">$MY_FOOTER - $MY_DATETIME</span>
-	</div>
-</footer>
-</body>
-</html>
-EOF
+# cat >> "$MY_INDEX_HTML_FILE" << EOF
+# </main> <!-- // main container -->
+# <br>
+# <footer class="footer mt-auto py-3 bg-light">
+# 	<div class="container">
+# 		<span class="text-muted">$MY_FOOTER - $MY_DATETIME</span>
+# 	</div>
+# </footer>
+# </body>
+# </html>
+# EOF
 
 debugOutput "= done"
