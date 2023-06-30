@@ -132,12 +132,9 @@ MY_NUM_FILES=0
 for MY_FILENAME in *.[jJ][pP][gG]; do
 	MY_FILELIST[$MY_NUM_FILES]=$MY_FILENAME
 	(( MY_NUM_FILES++ ))
-	for MY_RES in "${MY_HEIGHTS[@]}"; do
-		if [[ ! -s $MY_THUMBDIR/$MY_RES/$MY_FILENAME ]]; then
-			debugOutput "$MY_THUMBDIR/$MY_RES/$MY_FILENAME"
-			$MY_CONVERT_COMMAND -auto-orient -strip -quality $MY_QUALITY -resize x$MY_RES "$MY_FILENAME" "$MY_THUMBDIR/$MY_RES/$MY_FILENAME"
-		fi
-	done
+	$MY_CONVERT_COMMAND -auto-orient -strip -quality $MY_QUALITY -resize "$MY_HEIGHT_SMALL^>" -gravity center -crop "$MY_HEIGHT_SMALL"x"$MY_HEIGHT_SMALL"+0+0 "$MY_FILENAME" "$MY_THUMBDIR/$MY_HEIGHT_SMALL/$MY_FILENAME"
+	$MY_CONVERT_COMMAND -auto-orient -strip -quality $MY_QUALITY -resize x$MY_HEIGHT_LARGE "$MY_FILENAME" "$MY_THUMBDIR/$MY_HEIGHT_LARGE/$MY_FILENAME"
+
 	cat >> "$MY_INDEX_HTML_FILE" << EOF
 <div class="col mx-auto">
 		<a href="$MY_THUMBDIR/$MY_FILENAME.html"><img src="$MY_THUMBDIR/$MY_HEIGHT_SMALL/$MY_FILENAME" alt="thumbnail: $MY_FILENAME" class="img-fluid border border-white"></a>
